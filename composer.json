@@ -1,0 +1,41 @@
+{
+	"name": "delete-old-comments",
+	"description": "Delete old comments automatically",
+	"type": "wordpress-plugin",
+	"keywords": [
+		"wordpress",
+		"plugin"
+	],
+	"homepage": "https://cmoreira.net/delete-old-comments",
+	"license": "GPL-3.0+",
+	"authors": [
+		{
+		"name": "Carlos Moreira",
+		"email": "cmoreira.wp@gmail.com",
+		"homepage": "https://cmoreira.net/"
+		},
+		{
+		"name": "Pedro Carvalho",
+		"email": "leite.carvalho@gmail.com",
+		"homepage": "https://goodomens.studio/"
+		}
+	],
+	"support": {
+		"issues": "https://cmoreira.net/delete-old-comments",
+		"source": "https://cmoreira.net/delete-old-comments"
+	},
+	"autoload": {
+		"psr-4": {
+			"Arte\\WP\\Plugin\\DeleteComments\\": "lib/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Arte\\WP\\Plugin\\DeleteComments\\Tests\\": "tests/"
+		}
+	},
+	"require-dev": {},
+	"require": {
+		"php": ">=7.2"
+	}
+}

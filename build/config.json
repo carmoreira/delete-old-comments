@@ -1,0 +1,10 @@
+{
+	"i18n": {
+		"author":      "carmoreira <cmoreira.wp@gmail.com>",
+		"support":     "https://cmoreira.net/delete-old-comments",
+		"pluginSlug":  "delete-old-comments",
+		"mainFile":    "delete-old-comments",
+		"textDomain":  "delete-old-comments",
+		"potFilename": "delete-old-comments"
+	}
+}
