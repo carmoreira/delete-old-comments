@@ -11,13 +11,22 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 This plugin allows you to automatically clean up comments based on their age.
 
 == Description ==
-The plugin will allow you to setup a task to run periodically to check for comments older than a specific age and delete them from the database.
+The plugin will allow you to setup a task to run periodically to check for comments older than a specific age and send them to trash or delete them permanently from the database.
 
 == Changelog ==
 = v.1.0.0 =
  * Initial Release
 
 == Screenshots ==
+1. Options added to the Discussion settings page.
+
+
+== Frequently Asked Questions ==
+
+= Where can I find the settings for this plugin? =
+
+The plugin will add the options to the 'Discussion' settings page.
+Settings > Discussion.
 
 == Credits ==
 * Developed by [cmoreira](https://cmoreira.net) and [pcarvalho](https://goodomens.studio/)
