@@ -19,7 +19,9 @@ class Comments {
 	 */
 	public function run() {
 
-		$age = get_option( 'delete_comments_age', '3 years ago' );
+		$age       = get_option( 'delete_comments_age', '3 years ago' );
+		$operation = get_option( 'delete_comments_operation', 'trash' );
+		$delete    = $operation === 'trash' ? false : true;
 
 		$args = array(
 			'date_query' => array(
@@ -32,7 +34,7 @@ class Comments {
 		if ( $comments ) {
 			$count = 0;
 			foreach ( $comments as $comment ) {
-				wp_delete_comment( $comment );
+				wp_delete_comment( $comment, $delete );
 				$count++;
 			}
 		}

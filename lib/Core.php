@@ -106,6 +106,7 @@ class Core {
 					// clear options
 					delete_option( 'delete_comments_recurrence' );
 					delete_option( 'delete_comments_age' );
+					delete_option( 'delete_comments_operation' );
 				}
 			);
 
@@ -150,6 +151,16 @@ class Core {
 			)
 		);
 
+		register_setting(
+			'discussion',       // Options group
+			'delete_comments_operation',  // Option name/database
+			array(
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+				'default'           => 'trash',
+			)
+		);
+
 		/* Create settings field */
 		add_settings_field(
 			'delete_comments_recurrence',        // Field ID
@@ -163,6 +174,14 @@ class Core {
 			'delete_comments_age',        // Field ID
 			'Age',                        // Field title
 			array( $this, 'age_field' ),  // Field callback function
+			'discussion',                 // Settings page slug
+			'delete-old-comments'        // Section ID
+		);
+
+		add_settings_field(
+			'delete_comments_operation',        // Field ID
+			'Operation type',                        // Field title
+			array( $this, 'operation_field' ),  // Field callback function
 			'discussion',                 // Settings page slug
 			'delete-old-comments'        // Section ID
 		);
@@ -191,9 +210,13 @@ class Core {
 		}
 
 		// description
-		esc_html_e( 'Options to automatically delete comments based on their age. This operation is not reversible.', 'delete-old-comments' );
+		esc_html_e( 'Options to automatically delete comments based on their age.', 'delete-old-comments' );
 		$age        = get_option( 'delete_comments_age', '3 years ago' );
 		$dateformat = get_option( 'date_format' );
+		$operation  = get_option( 'delete_comments_operation', 'trash' );
+
+		// translate
+		$operation  = $operation === 'trash' ? __( 'trash', 'delete-old-comments' ) : __( 'delete', 'delete-old-comments' );
 
 		foreach ( $cron_jobs as $id => $cron_job ) {
 
@@ -229,12 +252,13 @@ class Core {
 						esc_attr(
 							/* translators: %s is a number */
 							_n(
-								'And will delete %s comment',
-								'And will delete %s comments',
+								'And will %s %s comment',
+								'And will %s %s comments',
 								$count,
 								'delete-old-comments'
 							)
 						),
+						$operation,
 						$count
 					);
 				} else {
@@ -321,6 +345,38 @@ class Core {
 			$current = get_option( 'delete_comments_age', '3 years ago' );
 
 			foreach ( $age as $key => $display ) {
+				$selected = selected( $current, $key );
+				printf(
+					'<option value="%1$s"%2$s>%3$s</option>',
+					esc_attr( $key ),
+					esc_html( $selected ),
+					esc_html( $display )
+				);
+			}
+			?>
+		</select>
+		</label>
+		<?php
+	}
+
+
+	/**
+	 * Display delete operation field
+	 */
+	public function operation_field() {
+		?>
+		<label for="delete_comments_operation">
+		<select id="delete_comments_operation" name="delete_comments_operation">
+			<?php
+
+			$operation = array(
+				'trash'  => esc_html__( 'Send to Trash', 'delete-old-comments' ),
+				'delete'  => esc_html__( 'Delete Permanently (Not reversible)', 'delete-old-comments' ),
+			);
+
+			$current = get_option( 'delete_comments_operation', 'trash' );
+
+			foreach ( $operation as $key => $display ) {
 				$selected = selected( $current, $key );
 				printf(
 					'<option value="%1$s"%2$s>%3$s</option>',
