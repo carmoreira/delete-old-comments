@@ -4,8 +4,8 @@
  * Plugin URI:  https://cmoreira.net/delete-old-comments
  * Description: Delete from database old comments automatically. The plugin will add options to the discussion settings page to control this.
  * Version:     1.0.0
- * Author:      Carlos Moreira, Pedro Carvalho
- * Author URI:  https://cmoreira.net
+ * Author:      Carlos Moreira & Pedro Carvalho
+ * Author URI:  https://cmoreira.net/delete-old-comments
  * License:     GPL3
  * Text Domain: delete-old-comments
  * Domain Path: /languages

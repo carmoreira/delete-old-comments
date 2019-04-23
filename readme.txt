@@ -29,7 +29,7 @@ The plugin will add the options to the 'Discussion' settings page.
 Settings > Discussion.
 
 == Credits ==
-* Developed by [cmoreira](https://cmoreira.net) and [pcarvalho](https://goodomens.studio/)
-* Thank you [arte.tv](https://www.arte.tv/en/) and [Marzee Labs](https://marzeelabs.org/) for development support
+* Developed by [Carlos Moreira](https://cmoreira.net) and [Pedro Carvalho](https://goodomens.studio/)
+* Thank you [ARTE G.E.I.E.](https://www.arte.tv/en/) and [Marzee Labs](https://marzeelabs.org/) for development support
 * Icon by [themajiks](https://www.iconfinder.com/themajiks)
 
