@@ -7,6 +7,7 @@
  * Author:      Carlos Moreira & Pedro Carvalho
  * Author URI:  https://cmoreira.net/delete-old-comments
  * License:     GPL3
+ * Requires PHP: 7.0
  * Text Domain: delete-old-comments
  * Domain Path: /languages
  */
