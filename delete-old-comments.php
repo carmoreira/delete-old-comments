@@ -3,11 +3,11 @@
  * Plugin Name: Delete Old Comments
  * Plugin URI:  https://cmoreira.net/delete-old-comments
  * Description: Delete from database old comments automatically. The plugin will add options to the discussion settings page to control this.
- * Version:     1.0.1
+ * Version:     1.0.0
  * Author:      Carlos Moreira & Pedro Carvalho
  * Author URI:  https://cmoreira.net/delete-old-comments
  * License:     GPL3
- * Requires PHP: 5.6.2
+ * Requires PHP: 7.0
  * Text Domain: delete-old-comments
  * Domain Path: /languages
  */
@@ -29,7 +29,7 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 add_action( 'plugins_loaded', function () {
 	$plugin = new Core(
 		'delete-old-comments',
-		'1.0.1',
+		'1.0.0',
 		__FILE__
 	);
 	$plugin->init();
