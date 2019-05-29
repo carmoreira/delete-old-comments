@@ -37,7 +37,7 @@ class Core {
 	 * @param string $version   Plugin version. Use semver.
 	 * @param string $file_path Plugin file path
 	 */
-	public function __construct( string $name, string $version, string $file_path ) {
+	public function __construct( $name, $version, $file_path ) {
 		$this->name      = $name;
 		$this->version   = $version;
 		$this->file_path = $file_path;
